@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8-Face Web Testing Ground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YOLOv8-Face Browser Testbed</h1>
+            <p>Running ONNX model natively in client-side JavaScript via ONNX Runtime Web.</p>
+        </header>
+
+        <div class="controls">
+            <label for="imageUpload" class="upload-btn">Choose Image</label>
+            <input type="file" id="imageUpload" accept="image/*">
+           <button id="runBtn" disabled>Detect Faces</button>
+        </div>
+
+        <div id="status"></div>
+        <button id="benchmarkBtn">Benchmark</button>
+        <pre id="benchmarkOutput"></pre>
+
+        <div class="canvas-container">
+            <canvas id="outputCanvas"></canvas>
+        </div>
+    </div>
+
+    <script type="module" src="/src/playground.js"></script>
+</body>
+</html>

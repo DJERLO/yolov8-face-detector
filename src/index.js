@@ -1,0 +1,1 @@
+export { FaceDetector } from "./detector/detector.js";
