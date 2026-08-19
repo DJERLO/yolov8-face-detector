@@ -2,6 +2,74 @@
 
 Browser-based face detection using ONNX Runtime Web and WebGPU, with YOLOv8-based face detection models.
 
+```javascript
+import { FaceDetector } from "yolov8-face-detector";
+
+// Create the detector
+const detector = new FaceDetector({
+    model: "standard",
+    executionProviders: ["webgpu", "wasm"]
+});
+
+// Load the model
+await detector.load();
+
+// Detect faces
+const result =
+    await detector.detect(image);
+```
+
+## Models
+
+The package supports three model-loading strategies.
+
+### Standard model
+
+```js
+const detector =
+    new FaceDetector({
+        model: "standard"
+    });
+```
+Uses the standard `yolov8n` model.
+`/models/yolov8n-face.onnx`
+
+### Lite model
+```js
+const detector =
+    new FaceDetector({
+        model: "lite"
+    });
+```
+Uses the lightweight `yolov8-lite-s` model.
+`/models/yolov8-lite-s-face.onnx`
+
+### Custom model
+```js
+const detector =
+    new FaceDetector({
+        publicPath:
+            "/models/custom-model.onnx"
+    });
+```
+Uses a custom model specified by the `publicPath`.
+`/models/custom-model.onnx`
+
+Models can be loaded from:
+
+* Local files
+* Remote URLs
+* CDN URLs or CDNs
+
+## Local hosting
+```text
+public/
+└── models/
+    ├── yolov8n-face.onnx
+    ├── yolov8-lite-s.onnx
+    └── custom-model.onnx
+```
+
 ## Model Performance Study
 
 This project supports multiple YOLOv8-based face detection models.

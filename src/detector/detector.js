@@ -15,33 +15,51 @@ export class FaceDetector {
 
     constructor({
         model = "standard",
+        publicPath = null,
         executionProviders = ["webgpu", "wasm"],
         targetSize = 640,
         confThreshold = 0.35,
         iouThreshold = 0.45
     } = {}) {
 
-        // Resolve "standard" / "lite"
-        const modelKey =
-            MODEL_ALIASES[model] ?? model;
+        // Custom model
+        if (publicPath) {
 
-        const modelConfig =
-            MODELS[modelKey];
+            this.model = "custom";
 
-        if (!modelConfig) {
-            throw new Error(
-                `Unknown face detection model: "${model}"`
-            );
+            this.modelConfig = {
+                name: "Custom Model",
+                path: publicPath
+            };
+
+            this.modelPath =
+                publicPath;
         }
 
-        this.model =
-            modelKey;
+        // Built-in model
+        else {
 
-        this.modelConfig =
-            modelConfig;
+            const modelKey =
+                MODEL_ALIASES[model] ?? model;
 
-        this.modelPath =
-            modelConfig.path;
+            const modelConfig =
+                MODELS[modelKey];
+
+            if (!modelConfig) {
+                throw new Error(
+                    `Unknown face detection model: "${model}"`
+                );
+            }
+
+            this.model =
+                modelKey;
+
+            this.modelConfig =
+                modelConfig;
+
+            this.modelPath =
+                modelConfig.path;
+        }
 
         this.executionProviders =
             executionProviders;

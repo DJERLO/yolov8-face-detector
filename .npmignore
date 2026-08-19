@@ -1,0 +1,9 @@
+dist/
+node_modules/
+tests/
+venv/
+public/
+output.jpg
+src/playground.js
+vite.config.js
+vercel.json

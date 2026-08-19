@@ -1,29 +1,42 @@
 {
-  "name": "face-detection",
+  "name": "yolov8-face-detector",
+  "description": "Browser-based face detection using YOLOv8, ONNX Runtime Web, and WebGPU.",
   "version": "1.0.0",
+  "author": "Jerlo F. De Leon",
+  "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./src/index.js",
   "exports": {
-    ".": {
-      "import": "./dist/index.js"
-    }
+    ".": "./src/index.js"
   },
+  "files": [
+    "src/index.js",
+    "src/detector",
+    "src/models",
+    "src/benchmark",
+    "README.md",
+    "LICENSE"
+  ],
+    "keywords": [
+        "face-detection",
+        "yolov8",
+        "onnx",
+        "webgpu",
+        "onnxruntime",
+        "computer-vision"
+    ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "vite": "^6.4.3",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "vite-plugin-static-copy": "^3.4.0"
   },
   "dependencies": {
-    "onnxruntime-web": "^1.27.0",
-    "vite-plugin-static-copy": "^3.4.0"
+    "onnxruntime-web": "^1.27.0"
   }
 }

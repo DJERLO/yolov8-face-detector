@@ -1,5 +1,5 @@
-import { FaceDetector } from "./index.js";
-import { benchmarkDetector } from "./benchmark/benchmark.js";
+import { FaceDetector } from "../src/index.js";
+import { benchmarkDetector } from "./benchmark.js";
 
 const benchmarkBtn =
     document.getElementById("benchmarkBtn");
