@@ -65,7 +65,7 @@ let currentImage = null;
 const detector =
     new FaceDetector({
         model: "standard",
-        executionProviders: ["webgpu"],
+        executionProviders: ["webgpu", "wasm"],
     });
 
 
